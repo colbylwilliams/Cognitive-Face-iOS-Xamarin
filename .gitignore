@@ -292,4 +292,6 @@ fastlane/test_output
 *.csproj.bak
 project.lock.json
 .vs/
-Producer/Producer.FunctionApp/appsettings.json
+
+Binding/
+Sharpie/
