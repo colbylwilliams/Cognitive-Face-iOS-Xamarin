@@ -33,6 +33,7 @@ all : clean ./Binding/$(FRAMEWORK)
 ./Binding/$(FRAMEWORK) : ./Sharpie/$(CONFIGURATION)-iphoneuniversal/$(FRAMEWORK)
 	mkdir -p Binding
 	-mv ./Sharpie/$(CONFIGURATION)-iphoneuniversal/$(FRAMEWORK) ./Binding
+	rm -rf Sharpie
 
 
 clean :

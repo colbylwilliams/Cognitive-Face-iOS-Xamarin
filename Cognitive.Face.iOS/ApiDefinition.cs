@@ -5,7 +5,7 @@ using Foundation;
 using ObjCRuntime;
 using CoreGraphics;
 
-namespace Cognitive.Face.iOS
+namespace Xamarin.Cognitive.Face.iOS
 {
 
 	// @interface MPOAddPersistedFaceResult : NSObject
@@ -51,7 +51,7 @@ namespace Cognitive.Face.iOS
 		IntPtr Constructor (NSDictionary dict);
 	}
 
-	// @interface MPOFaceFeatureCoordinate : NSObject
+	// @interface MPOFaceFeatureCoordinate : NSObject 
 	[BaseType (typeof (NSObject))]
 	interface MPOFaceFeatureCoordinate
 	{

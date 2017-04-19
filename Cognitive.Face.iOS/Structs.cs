@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cognitive.Face.iOS
+namespace Xamarin.Cognitive.Face.iOS
 {
 	public enum MPOFaceAttributeType : uint
 	{
