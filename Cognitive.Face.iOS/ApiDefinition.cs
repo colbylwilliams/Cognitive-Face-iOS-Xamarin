@@ -307,7 +307,7 @@ namespace Xamarin.Cognitive.Face.iOS
 		string PersistedFaceId { get; set; }
 
 		// @property NSString * userData;
-		[Export ("userData")]
+		[Export ("userData"), NullAllowed]
 		string UserData { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
@@ -328,7 +328,7 @@ namespace Xamarin.Cognitive.Face.iOS
 		string Name { get; set; }
 
 		// @property NSString * userData;
-		[Export ("userData")]
+		[Export ("userData"), NullAllowed]
 		string UserData { get; set; }
 
 		// @property NSArray * persistedFaces;
@@ -354,7 +354,7 @@ namespace Xamarin.Cognitive.Face.iOS
 		string Name { get; set; }
 
 		// @property NSString * userData;
-		[Export ("userData")]
+		[Export ("userData"), NullAllowed]
 		string UserData { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
@@ -493,7 +493,7 @@ namespace Xamarin.Cognitive.Face.iOS
 		string Name { get; set; }
 
 		// @property NSString * userData;
-		[Export ("userData")]
+		[Export ("userData"), NullAllowed]
 		string UserData { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
@@ -510,7 +510,7 @@ namespace Xamarin.Cognitive.Face.iOS
 		string FaceId { get; set; }
 
 		// @property NSString * userData;
-		[Export ("userData")]
+		[Export ("userData"), NullAllowed]
 		string UserData { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
