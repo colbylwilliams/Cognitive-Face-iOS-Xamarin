@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 
 using UIKit;
 using Foundation;
@@ -442,7 +442,7 @@ namespace Xamarin.Cognitive.Face.iOS
 		string Name { get; set; }
 
 		// @property NSString * userData;
-		[Export ("userData")]
+		[Export ("userData"), NullAllowed]
 		string UserData { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
