@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 
 using UIKit;
 using Foundation;
@@ -600,7 +600,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// -(NSURLSessionDataTask *)createPersonGroupWithId:(NSString *)personGroupId name:(NSString *)name userData:(NSString *)userData completionBlock:(MPOCompletionBlock)completion;
 		[Export ("createPersonGroupWithId:name:userData:completionBlock:")]
-		NSUrlSessionDataTask CreatePersonGroupWithId (string personGroupId, string name, string userData, MPOCompletionBlock completion);
+		NSUrlSessionDataTask CreatePersonGroupWithId (string personGroupId, string name, [NullAllowed] string userData, MPOCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)getPersonGroupWithPersonGroupId:(NSString *)personGroupId completionBlock:(void (^)(MPOPersonGroup *, NSError *))completion;
 		[Export ("getPersonGroupWithPersonGroupId:completionBlock:")]
@@ -608,7 +608,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// -(NSURLSessionDataTask *)updatePersonGroupWithPersonGroupId:(NSString *)personGroupId name:(NSString *)name userData:(NSString *)userData completionBlock:(MPOCompletionBlock)completion;
 		[Export ("updatePersonGroupWithPersonGroupId:name:userData:completionBlock:")]
-		NSUrlSessionDataTask UpdatePersonGroupWithPersonGroupId (string personGroupId, string name, string userData, MPOCompletionBlock completion);
+		NSUrlSessionDataTask UpdatePersonGroupWithPersonGroupId (string personGroupId, string name, [NullAllowed] string userData, MPOCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)deletePersonGroupWithPersonGroupId:(NSString *)personGroupId completionBlock:(MPOCompletionBlock)completion;
 		[Export ("deletePersonGroupWithPersonGroupId:completionBlock:")]
@@ -638,7 +638,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// -(NSURLSessionDataTask *)createPersonWithPersonGroupId:(NSString *)personGroupId name:(NSString *)name userData:(NSString *)userData completionBlock:(void (^)(MPOCreatePersonResult *, NSError *))completion;
 		[Export ("createPersonWithPersonGroupId:name:userData:completionBlock:")]
-		NSUrlSessionDataTask CreatePersonWithPersonGroupId (string personGroupId, string name, string userData, Action<MPOCreatePersonResult, NSError> completion);
+		NSUrlSessionDataTask CreatePersonWithPersonGroupId (string personGroupId, string name, [NullAllowed] string userData, Action<MPOCreatePersonResult, NSError> completion);
 
 		// -(NSURLSessionDataTask *)getPersonWithPersonGroupId:(NSString *)personGroupId personId:(NSString *)personId completionBlock:(void (^)(MPOPerson *, NSError *))completion;
 		[Export ("getPersonWithPersonGroupId:personId:completionBlock:")]
@@ -646,7 +646,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// -(NSURLSessionDataTask *)updatePersonWithPersonGroupId:(NSString *)personGroupId personId:(NSString *)personId name:(NSString *)name userData:(NSString *)userData completionBlock:(MPOCompletionBlock)completion;
 		[Export ("updatePersonWithPersonGroupId:personId:name:userData:completionBlock:")]
-		NSUrlSessionDataTask UpdatePersonWithPersonGroupId (string personGroupId, string personId, string name, string userData, MPOCompletionBlock completion);
+		NSUrlSessionDataTask UpdatePersonWithPersonGroupId (string personGroupId, string personId, string name, [NullAllowed] string userData, MPOCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)deletePersonWithPersonGroupId:(NSString *)personGroupId personId:(NSString *)personId completionBlock:(MPOCompletionBlock)completion;
 		[Export ("deletePersonWithPersonGroupId:personId:completionBlock:")]
@@ -668,7 +668,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// -(NSURLSessionDataTask *)updatePersonFaceWithPersonGroupId:(NSString *)personGroupId personId:(NSString *)personId persistedFaceId:(NSString *)persistedFaceId userData:(NSString *)userData completionBlock:(MPOCompletionBlock)completion;
 		[Export ("updatePersonFaceWithPersonGroupId:personId:persistedFaceId:userData:completionBlock:")]
-		NSUrlSessionDataTask UpdatePersonFaceWithPersonGroupId (string personGroupId, string personId, string persistedFaceId, string userData, MPOCompletionBlock completion);
+		NSUrlSessionDataTask UpdatePersonFaceWithPersonGroupId (string personGroupId, string personId, string persistedFaceId, [NullAllowed] string userData, MPOCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)deletePersonFaceWithPersonGroupId:(NSString *)personGroupId personId:(NSString *)personId persistedFaceId:(NSString *)persistedFaceId completionBlock:(MPOCompletionBlock)completion;
 		[Export ("deletePersonFaceWithPersonGroupId:personId:persistedFaceId:completionBlock:")]
@@ -676,15 +676,15 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// -(NSURLSessionDataTask *)addPersonFaceWithPersonGroupId:(NSString *)personGroupId personId:(NSString *)personId url:(NSString *)url userData:(NSString *)userData faceRectangle:(MPOFaceRectangle *)faceRectangle completionBlock:(void (^)(MPOAddPersistedFaceResult *, NSError *))completion;
 		[Export ("addPersonFaceWithPersonGroupId:personId:url:userData:faceRectangle:completionBlock:")]
-		NSUrlSessionDataTask AddPersonFaceWithPersonGroupId (string personGroupId, string personId, string url, string userData, MPOFaceRectangle faceRectangle, Action<MPOAddPersistedFaceResult, NSError> completion);
+		NSUrlSessionDataTask AddPersonFaceWithPersonGroupId (string personGroupId, string personId, string url, [NullAllowed] string userData, MPOFaceRectangle faceRectangle, Action<MPOAddPersistedFaceResult, NSError> completion);
 
 		// -(NSURLSessionDataTask *)addPersonFaceWithPersonGroupId:(NSString *)personGroupId personId:(NSString *)personId data:(NSData *)data userData:(NSString *)userData faceRectangle:(MPOFaceRectangle *)faceRectangle completionBlock:(void (^)(MPOAddPersistedFaceResult *, NSError *))completion;
 		[Export ("addPersonFaceWithPersonGroupId:personId:data:userData:faceRectangle:completionBlock:")]
-		NSUrlSessionDataTask AddPersonFaceWithPersonGroupId (string personGroupId, string personId, NSData data, string userData, MPOFaceRectangle faceRectangle, Action<MPOAddPersistedFaceResult, NSError> completion);
+		NSUrlSessionDataTask AddPersonFaceWithPersonGroupId (string personGroupId, string personId, NSData data, [NullAllowed] string userData, MPOFaceRectangle faceRectangle, Action<MPOAddPersistedFaceResult, NSError> completion);
 
 		// -(NSURLSessionDataTask *)createFaceListWithFaceListId:(NSString *)faceListId name:(NSString *)name userData:(NSString *)userData completionBlock:(MPOCompletionBlock)completion;
 		[Export ("createFaceListWithFaceListId:name:userData:completionBlock:")]
-		NSUrlSessionDataTask CreateFaceListWithFaceListId (string faceListId, string name, string userData, MPOCompletionBlock completion);
+		NSUrlSessionDataTask CreateFaceListWithFaceListId (string faceListId, string name, [NullAllowed] string userData, MPOCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)getFaceListWithFaceListId:(NSString *)faceListId completionBlock:(void (^)(MPOFaceList *, NSError *))completion;
 		[Export ("getFaceListWithFaceListId:completionBlock:")]
@@ -696,11 +696,11 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// -(NSURLSessionDataTask *)updateFaceListWithFaceListId:(NSString *)faceListId name:(NSString *)name userData:(NSString *)userData completionBlock:(MPOCompletionBlock)completion;
 		[Export ("updateFaceListWithFaceListId:name:userData:completionBlock:")]
-		NSUrlSessionDataTask UpdateFaceListWithFaceListId (string faceListId, string name, string userData, MPOCompletionBlock completion);
+		NSUrlSessionDataTask UpdateFaceListWithFaceListId (string faceListId, string name, [NullAllowed] string userData, MPOCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)deleteFaceListWithFaceListId:(NSString *)faceListId name:(NSString *)name userData:(NSString *)userData completionBlock:(MPOCompletionBlock)completion;
 		[Export ("deleteFaceListWithFaceListId:name:userData:completionBlock:")]
-		NSUrlSessionDataTask DeleteFaceListWithFaceListId (string faceListId, string name, string userData, MPOCompletionBlock completion);
+		NSUrlSessionDataTask DeleteFaceListWithFaceListId (string faceListId, string name, [NullAllowed] string userData, MPOCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)deleteFacesFromFaceListWithFaceListId:(NSString *)faceListId name:(NSString *)name persistedFaceId:(NSString *)persistedFaceId completionBlock:(MPOCompletionBlock)completion;
 		[Export ("deleteFacesFromFaceListWithFaceListId:name:persistedFaceId:completionBlock:")]
@@ -708,11 +708,11 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// -(NSURLSessionDataTask *)addFacesToFaceListWithFaceListId:(NSString *)faceListId url:(NSString *)url userData:(NSString *)userData faceRectangle:(MPOFaceRectangle *)faceRectangle completionBlock:(void (^)(MPOAddPersistedFaceResult *, NSError *))completion;
 		[Export ("addFacesToFaceListWithFaceListId:url:userData:faceRectangle:completionBlock:")]
-		NSUrlSessionDataTask AddFacesToFaceListWithFaceListId (string faceListId, string url, string userData, MPOFaceRectangle faceRectangle, Action<MPOAddPersistedFaceResult, NSError> completion);
+		NSUrlSessionDataTask AddFacesToFaceListWithFaceListId (string faceListId, string url, [NullAllowed] string userData, MPOFaceRectangle faceRectangle, Action<MPOAddPersistedFaceResult, NSError> completion);
 
 		// -(NSURLSessionDataTask *)addFacesToFaceListWithFaceListId:(NSString *)faceListId data:(NSData *)data userData:(NSString *)userData faceRectangle:(MPOFaceRectangle *)faceRectangle completionBlock:(void (^)(MPOAddPersistedFaceResult *, NSError *))completion;
 		[Export ("addFacesToFaceListWithFaceListId:data:userData:faceRectangle:completionBlock:")]
-		NSUrlSessionDataTask AddFacesToFaceListWithFaceListId (string faceListId, NSData data, string userData, MPOFaceRectangle faceRectangle, Action<MPOAddPersistedFaceResult, NSError> completion);
+		NSUrlSessionDataTask AddFacesToFaceListWithFaceListId (string faceListId, NSData data, [NullAllowed] string userData, MPOFaceRectangle faceRectangle, Action<MPOAddPersistedFaceResult, NSError> completion);
 	}
 
 	[Static]
