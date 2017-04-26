@@ -486,7 +486,7 @@ namespace Xamarin.Cognitive.Face.iOS
 		// @property NSArray * faceIds;
 		[Export ("faceIds", ArgumentSemantic.Assign)]
 		//[Verify (StronglyTypedNSArray)]
-		NSString [] FaceIds { get; set; }
+		string [] FaceIds { get; set; }
 
 		// @property NSString * name;
 		[Export ("name")]
@@ -496,9 +496,10 @@ namespace Xamarin.Cognitive.Face.iOS
 		[Export ("userData"), NullAllowed]
 		string UserData { get; set; }
 
+		//MOVED TO extra.cs to workaround https://github.com/Microsoft/Cognitive-Face-iOS/issues/21
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
-		[Export ("initWithDictionary:")]
-		IntPtr Constructor (NSDictionary dict);
+		//[Export ("initWithDictionary:")]
+		//IntPtr Constructor (NSDictionary dict);
 	}
 
 	// @interface MPOPersonFace : NSObject
