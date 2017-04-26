@@ -7,10 +7,9 @@
     <ProjectGuid>{C13B9CDB-003C-4CDB-9C05-1E79F9AB27D1}</ProjectGuid>
     <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>Cognitive.Face.iOS</RootNamespace>
-    <AssemblyName>Cognitive.Face.iOS</AssemblyName>
+    <RootNamespace>Xamarin.Cognitive.Face.iOS</RootNamespace>
+    <AssemblyName>Xamarin.Cognitive.Face.iOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <ReleaseVersion>0.2.3</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extra.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />

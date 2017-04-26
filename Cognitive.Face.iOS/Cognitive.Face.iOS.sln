@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognitive.Face.iOS", "Cognitive.Face.iOS.csproj", "{C13B9CDB-003C-4CDB-9C05-1E79F9AB27D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Cognitive.Face.iOS", "Xamarin.Cognitive.Face.iOS.csproj", "{C13B9CDB-003C-4CDB-9C05-1E79F9AB27D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
