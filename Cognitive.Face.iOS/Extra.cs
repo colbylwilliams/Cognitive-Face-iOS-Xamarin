@@ -1,24 +1,75 @@
 ﻿using Foundation;
+using System;
 
 namespace Xamarin.Cognitive.Face.iOS
 {
-    public partial class MPOPerson : NSObject
-    {
-		//workaround for https://github.com/Microsoft/Cognitive-Face-iOS/issues/21
-		[Export("initWithDictionary:")]
-		//IntPtr Constructor (NSDictionary dict);
-		public MPOPerson(NSDictionary dict)
-		{
-			//var person = new MPOPerson();
+	//public partial class MPOPerson : NSObject
+	//{
+	//workaround for https://github.com/Microsoft/Cognitive-Face-iOS/issues/21
+	//[Export("initWithDictionary:")]
+	////IntPtr Constructor (NSDictionary dict);
+	//public MPOPerson(NSDictionary dict) : base(NSObjectFlag.Empty)
+	//{
+	//	this.FaceIds = new string [] { "test1" };
 
-			this.PersonId = dict[@"personId"].ToString();
-			this.Name = dict[@"name"].ToString();
-			this.UserData = dict[@"userData"]?.ToString();
+	//	this.PersonId = dict[@"personId"].ToString();
+	//	this.Name = dict[@"name"].ToString();
+	//	this.UserData = dict[@"userData"]?.ToString();
 
-			if (dict[@"persistedFaceIds"] is NSArray)
-			{
-				this.FaceIds = NSArray.StringArrayFromHandle(dict[@"persistedFaceIds"].Handle);
-			}
-		}
-	}
+	//	Console.WriteLine ("dict[@\"persistedFaceIds\"] is: {0}", dict [@"persistedFaceIds"]);
+
+	//	if (dict[@"persistedFaceIds"] is NSArray)
+	//	{
+	//		Console.WriteLine ("Valid NSArray, not trying to turn into string[]");
+
+	//		this.FaceIds = NSArray.StringArrayFromHandle(dict[@"persistedFaceIds"].Handle);
+	//	}
+
+	//	this.FaceIds = new string [] { "test2" };
+	//}
+
+
+	//}
+
+	//public partial class MPOFaceServiceClient : NSObject
+	//{
+	//	const string NULL = "<null>";
+
+	//	public NSUrlSessionDataTask ListPersonsForGroup (string personGroupId, MPOPersonArrayCompletionBlock completion)
+	//	{
+	//		return StartTaskWithHttpMethod ("GET", $"persongroups/{personGroupId}/persons", null, null, null, (response, responseObject, error) =>
+	//		{
+	//			var array = new NSMutableArray ();
+
+	//			if (error == null)
+	//			{
+	//				var dictionaries = NSArray.FromArray<NSDictionary> ((NSArray)responseObject);
+
+	//				foreach (var dict in dictionaries)
+	//				{
+	//					var mpoPerson = new MPOPerson ();
+	//					mpoPerson.PersonId = dict [@"personId"].ToString ();
+	//					mpoPerson.Name = dict [@"name"].ToString ();
+
+	//					var userData = dict [@"userData"] as NSString;
+	//					var userDataString = userData?.ToString ();
+
+	//					if (userDataString != NULL)
+	//					{
+	//						mpoPerson.UserData = userDataString;
+	//					}
+
+	//					if (dict [@"persistedFaceIds"] is NSArray)
+	//					{
+	//						mpoPerson.FaceIds = NSArray.StringArrayFromHandle (dict [@"persistedFaceIds"].Handle);
+	//					}
+
+	//					array.Add (mpoPerson);
+	//				}
+	//			}
+
+	//			RunCompletionOnMainQueueWithBlock (completion, array, error);
+	//		});
+	//	}
+	//}
 }

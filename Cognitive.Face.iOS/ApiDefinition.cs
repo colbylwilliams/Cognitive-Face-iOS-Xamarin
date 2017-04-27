@@ -1,9 +1,6 @@
 ﻿using System;
-
-using UIKit;
 using Foundation;
 using ObjCRuntime;
-using CoreGraphics;
 
 namespace Xamarin.Cognitive.Face.iOS
 {
@@ -483,10 +480,10 @@ namespace Xamarin.Cognitive.Face.iOS
 		[Export ("personId")]
 		string PersonId { get; set; }
 
-		// @property NSArray * faceIds;
-		[Export ("faceIds", ArgumentSemantic.Assign)]
+		// @property NSArray * persistedFaceIds;
+		[Export ("persistedFaceIds", ArgumentSemantic.Assign)]
 		//[Verify (StronglyTypedNSArray)]
-		string [] FaceIds { get; set; }
+		string [] PersistedFaceIds { get; set; }
 
 		// @property NSString * name;
 		[Export ("name")]
@@ -496,19 +493,18 @@ namespace Xamarin.Cognitive.Face.iOS
 		[Export ("userData"), NullAllowed]
 		string UserData { get; set; }
 
-		//MOVED TO extra.cs to workaround https://github.com/Microsoft/Cognitive-Face-iOS/issues/21
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
-		//[Export ("initWithDictionary:")]
-		//IntPtr Constructor (NSDictionary dict);
+		[Export ("initWithDictionary:")]
+		IntPtr Constructor (NSDictionary dict);
 	}
 
 	// @interface MPOPersonFace : NSObject
 	[BaseType (typeof (NSObject))]
 	interface MPOPersonFace
 	{
-		// @property NSString * faceId;
-		[Export ("faceId")]
-		string FaceId { get; set; }
+		// @property NSString * persistedFaceId;
+		[Export ("persistedFaceId")]
+		string PersistedFaceId { get; set; }
 
 		// @property NSString * userData;
 		[Export ("userData"), NullAllowed]
@@ -520,25 +516,30 @@ namespace Xamarin.Cognitive.Face.iOS
 	}
 
 	// typedef void (^MPOCompletionBlock)(NSError *);
-	delegate void MPOCompletionBlock (NSError arg0);
+	delegate void MPOCompletionBlock (NSError error);
+
+	//delegate void CompletionBlock (NSObject obj, NSError error);
 
 	// typedef void (^MPOFaceArrayCompletionBlock)(NSArray<MPOFace *> *, NSError *);
-	delegate void MPOFaceArrayCompletionBlock (MPOFace [] arg0, NSError arg1);
+	delegate void MPOFaceArrayCompletionBlock (MPOFace [] faces, NSError error);
 
 	// typedef void (^MPOSimilarFaceArrayCompletionBlock)(NSArray<MPOSimilarFace *> *, NSError *);
-	delegate void MPOSimilarFaceArrayCompletionBlock (MPOSimilarFace [] arg0, NSError arg1);
+	delegate void MPOSimilarFaceArrayCompletionBlock (MPOSimilarFace [] similarFaces, NSError error);
 
 	// typedef void (^MPOIdentifyResultArrayCompletionBlock)(NSArray<MPOIdentifyResult *> *, NSError *);
-	delegate void MPOIdentifyResultArrayCompletionBlock (MPOIdentifyResult [] arg0, NSError arg1);
+	delegate void MPOIdentifyResultArrayCompletionBlock (MPOIdentifyResult [] identifyResults, NSError error);
 
 	// typedef void (^MPOPersonGroupArrayCompletionBlock)(NSArray<MPOPersonGroup *> *, NSError *);
-	delegate void MPOPersonGroupArrayCompletionBlock (MPOPersonGroup [] arg0, NSError arg1);
+	delegate void MPOPersonGroupArrayCompletionBlock (MPOPersonGroup [] personGroup, NSError error);
 
 	// typedef void (^MPOPersonArrayCompletionBlock)(NSArray<MPOPerson *> *, NSError *);
-	delegate void MPOPersonArrayCompletionBlock (MPOPerson [] arg0, NSError arg1);
+	delegate void MPOPersonArrayCompletionBlock (MPOPerson [] people, NSError error);
 
 	// typedef void (^MPOFaceListMetadataArrayCompletionBlock)(NSArray<MPOFaceListMetadata *> *, NSError *);
-	delegate void MPOFaceListMetadataArrayCompletionBlock (MPOFaceListMetadata [] arg0, NSError arg1);
+	delegate void MPOFaceListMetadataArrayCompletionBlock (MPOFaceListMetadata [] metaData, NSError error);
+
+	// typedef void(^PORequestCompletionBlock)(NSURLResponse *response, id responseObject, NSError *error);
+	delegate void PORequestCompletionBlock (NSUrlResponse response, NSObject responseObject, NSError error);
 
 	// @interface MPOFaceServiceClient : NSObject
 	[BaseType (typeof (NSObject))]
@@ -714,7 +715,16 @@ namespace Xamarin.Cognitive.Face.iOS
 		// -(NSURLSessionDataTask *)addFacesToFaceListWithFaceListId:(NSString *)faceListId data:(NSData *)data userData:(NSString *)userData faceRectangle:(MPOFaceRectangle *)faceRectangle completionBlock:(void (^)(MPOAddPersistedFaceResult *, NSError *))completion;
 		[Export ("addFacesToFaceListWithFaceListId:data:userData:faceRectangle:completionBlock:")]
 		NSUrlSessionDataTask AddFacesToFaceListWithFaceListId (string faceListId, NSData data, [NullAllowed] string userData, MPOFaceRectangle faceRectangle, Action<MPOAddPersistedFaceResult, NSError> completion);
+
+		// -(NSURLSessionDataTask *)startTaskWithHttpMethod:(NSString *)httpMethod path:(NSString *)path parameters:(NSDictionary *)params urlParams:(NSDictionary *)urlParams bodyData:(NSData *)bodyData completion:(PORequestCompletionBlock)completion;
+		//[Export ("startTaskWithHttpMethod:path:parameters:urlParams:bodyData:completion:")]
+		//NSUrlSessionDataTask StartTaskWithHttpMethod (string httpMethod, string path, [NullAllowed] NSDictionary parameters, [NullAllowed] NSDictionary urlParams, [NullAllowed] NSData bodyData, PORequestCompletionBlock completion);
+
+		// - (void)runCompletionOnMainQueueWithBlock:(void (^) (id obj, NSError *error))completionBlock object:(id )object error:(NSError *)error 
+		//[Export ("runCompletionOnMainQueueWithBlock:object:error:")]
+		//void RunCompletionOnMainQueueWithBlock (MPOPersonArrayCompletionBlock completionBlock, [NullAllowed] NSObject obj, [NullAllowed] NSError error);
 	}
+
 
 	[Static]
 	//[Verify (ConstantsInterfaceAssociation)]
