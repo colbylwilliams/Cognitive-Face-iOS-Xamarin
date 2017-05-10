@@ -28,6 +28,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// @property NSNumber * confidence;
 		[Export ("confidence", ArgumentSemantic.Assign)]
+		[BindAs (typeof(float))]
 		NSNumber Confidence { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
@@ -570,7 +571,7 @@ namespace Xamarin.Cognitive.Face.iOS
 		// -(NSURLSessionDataTask *)findSimilarWithFaceId:(NSString *)faceId faceIds:(NSArray *)faceIds completionBlock:(MPOSimilarFaceArrayCompletionBlock)completion;
 		[Export ("findSimilarWithFaceId:faceIds:completionBlock:")]
 		//[Verify (StronglyTypedNSArray)]
-		NSUrlSessionDataTask FindSimilarWithFaceId (string faceId, NSString [] faceIds, MPOSimilarFaceArrayCompletionBlock completion);
+		NSUrlSessionDataTask FindSimilarWithFaceId (string faceId, string [] faceIds, MPOSimilarFaceArrayCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)findSimilarWithFaceId:(NSString *)faceId faceListId:(NSString *)faceListId completionBlock:(MPOSimilarFaceArrayCompletionBlock)completion;
 		[Export ("findSimilarWithFaceId:faceListId:completionBlock:")]
@@ -579,7 +580,7 @@ namespace Xamarin.Cognitive.Face.iOS
 		// -(NSURLSessionDataTask *)findSimilarWithFaceId:(NSString *)faceId faceIds:(NSArray *)faceIds maxNumOfCandidatesReturned:(NSInteger)maxNumOfCandidatesReturned mode:(MPOSimilarFaceSearchingMode)mode completionBlock:(MPOSimilarFaceArrayCompletionBlock)completion;
 		[Export ("findSimilarWithFaceId:faceIds:maxNumOfCandidatesReturned:mode:completionBlock:")]
 		//[Verify (StronglyTypedNSArray)]
-		NSUrlSessionDataTask FindSimilarWithFaceId (string faceId, NSString [] faceIds, nint maxNumOfCandidatesReturned, MPOSimilarFaceSearchingMode mode, MPOSimilarFaceArrayCompletionBlock completion);
+		NSUrlSessionDataTask FindSimilarWithFaceId (string faceId, string [] faceIds, nint maxNumOfCandidatesReturned, MPOSimilarFaceSearchingMode mode, MPOSimilarFaceArrayCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)findSimilarWithFaceId:(NSString *)faceId faceListId:(NSString *)faceListId maxNumOfCandidatesReturned:(NSInteger)maxNumOfCandidatesReturned mode:(MPOSimilarFaceSearchingMode)mode completionBlock:(MPOSimilarFaceArrayCompletionBlock)completion;
 		[Export ("findSimilarWithFaceId:faceListId:maxNumOfCandidatesReturned:mode:completionBlock:")]
@@ -588,17 +589,17 @@ namespace Xamarin.Cognitive.Face.iOS
 		// -(NSURLSessionDataTask *)groupWithFaceIds:(NSArray *)faceIds completionBlock:(void (^)(MPOGroupResult *, NSError *))completion;
 		[Export ("groupWithFaceIds:completionBlock:")]
 		//[Verify (StronglyTypedNSArray)]
-		NSUrlSessionDataTask GroupWithFaceIds (NSString [] faceIds, Action<MPOGroupResult, NSError> completion);
+		NSUrlSessionDataTask GroupWithFaceIds (string [] faceIds, Action<MPOGroupResult, NSError> completion);
 
 		// -(NSURLSessionDataTask *)identifyWithPersonGroupId:(NSString *)personGroupId faceIds:(NSArray *)faceIds maxNumberOfCandidates:(NSInteger)maxNumberOfCandidates completionBlock:(MPOIdentifyResultArrayCompletionBlock)completion;
 		[Export ("identifyWithPersonGroupId:faceIds:maxNumberOfCandidates:completionBlock:")]
 		//[Verify (StronglyTypedNSArray)]
-		NSUrlSessionDataTask IdentifyWithPersonGroupId (string personGroupId, NSString [] faceIds, nint maxNumberOfCandidates, MPOIdentifyResultArrayCompletionBlock completion);
+		NSUrlSessionDataTask IdentifyWithPersonGroupId (string personGroupId, string [] faceIds, nint maxNumberOfCandidates, MPOIdentifyResultArrayCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)identifyWithPersonGroupId:(NSString *)personGroupId faceIds:(NSArray *)faceIds maxNumberOfCandidates:(NSInteger)maxNumberOfCandidates confidenceThreshold:(CGFloat)confidenceThreshold completionBlock:(MPOIdentifyResultArrayCompletionBlock)completion;
 		[Export ("identifyWithPersonGroupId:faceIds:maxNumberOfCandidates:confidenceThreshold:completionBlock:")]
 		//[Verify (StronglyTypedNSArray)]
-		NSUrlSessionDataTask IdentifyWithPersonGroupId (string personGroupId, NSString [] faceIds, nint maxNumberOfCandidates, nfloat confidenceThreshold, MPOIdentifyResultArrayCompletionBlock completion);
+		NSUrlSessionDataTask IdentifyWithPersonGroupId (string personGroupId, string [] faceIds, nint maxNumberOfCandidates, nfloat confidenceThreshold, MPOIdentifyResultArrayCompletionBlock completion);
 
 		// -(NSURLSessionDataTask *)createPersonGroupWithId:(NSString *)personGroupId name:(NSString *)name userData:(NSString *)userData completionBlock:(MPOCompletionBlock)completion;
 		[Export ("createPersonGroupWithId:name:userData:completionBlock:")]
