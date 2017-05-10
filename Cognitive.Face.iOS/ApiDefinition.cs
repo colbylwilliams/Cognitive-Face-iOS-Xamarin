@@ -305,7 +305,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// @property NSString * userData;
 		[Export ("userData"), NullAllowed]
-		string UserData { get; set; }
+		NSObject NSUserData { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
 		[Export ("initWithDictionary:")]
@@ -326,7 +326,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// @property NSString * userData;
 		[Export ("userData"), NullAllowed]
-		string UserData { get; set; }
+		NSObject NSUserData { get; set; }
 
 		// @property NSArray * persistedFaces;
 		[Export ("persistedFaces", ArgumentSemantic.Assign)]
@@ -352,7 +352,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// @property NSString * userData;
 		[Export ("userData"), NullAllowed]
-		string UserData { get; set; }
+		NSObject NSUserData { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
 		[Export ("initWithDictionary:")]
@@ -440,7 +440,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// @property NSString * userData;
 		[Export ("userData"), NullAllowed]
-		string UserData { get; set; }
+		NSObject NSUserData { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
 		[Export ("initWithDictionary:")]
@@ -491,7 +491,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// @property NSString * userData;
 		[Export ("userData"), NullAllowed]
-		string UserData { get; set; }
+		NSObject NSUserData { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
 		[Export ("initWithDictionary:")]
@@ -508,7 +508,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// @property NSString * userData;
 		[Export ("userData"), NullAllowed]
-		string UserData { get; set; }
+		NSObject NSUserData { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
 		[Export ("initWithDictionary:")]

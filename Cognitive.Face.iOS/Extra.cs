@@ -3,6 +3,118 @@ using System;
 
 namespace Xamarin.Cognitive.Face.iOS
 {
+	#region Wrapper properties to get around annoying NSNull issue
+
+	public partial class MPOPersonGroup : NSObject
+	{
+		public string UserData {
+			get {
+				if (NSNull.Null.Equals(NSUserData))
+				{
+					return null;
+				}
+
+				return NSUserData.ToString();
+			}
+			set {
+				NSUserData = new NSString(value);
+			}
+		}
+	}
+
+
+	public partial class MPOPerson : NSObject
+	{
+		public string UserData {
+			get {
+				if (NSNull.Null.Equals(NSUserData))
+				{
+					return null;
+				}
+
+				return NSUserData.ToString();
+			}
+			set {
+				NSUserData = new NSString(value);
+			}
+		}
+	}
+
+
+	public partial class MPOPersonFace : NSObject
+	{
+		public string UserData {
+			get {
+				if (NSNull.Null.Equals(NSUserData))
+				{
+					return null;
+				}
+
+				return NSUserData.ToString();
+			}
+			set {
+				NSUserData = new NSString(value);
+			}
+		}
+	}
+
+
+	public partial class MPOFaceMetadata : NSObject
+	{
+		public string UserData {
+			get {
+				if (NSNull.Null.Equals(NSUserData))
+				{
+					return null;
+				}
+
+				return NSUserData.ToString();
+			}
+			set {
+				NSUserData = new NSString(value);
+			}
+		}
+	}
+
+
+	public partial class MPOFaceList : NSObject
+	{
+		public string UserData {
+			get {
+				if (NSNull.Null.Equals(NSUserData))
+				{
+					return null;
+				}
+
+				return NSUserData.ToString();
+			}
+			set {
+				NSUserData = new NSString(value);
+			}
+		}
+	}
+
+
+	public partial class MPOFaceListMetadata : NSObject
+	{
+		public string UserData {
+			get {
+				if (NSNull.Null.Equals(NSUserData))
+				{
+					return null;
+				}
+
+				return NSUserData.ToString();
+			}
+			set {
+				NSUserData = new NSString(value);
+			}
+		}
+	}
+
+
+	#endregion
+
 	//public partial class MPOPerson : NSObject
 	//{
 	//workaround for https://github.com/Microsoft/Cognitive-Face-iOS/issues/21
