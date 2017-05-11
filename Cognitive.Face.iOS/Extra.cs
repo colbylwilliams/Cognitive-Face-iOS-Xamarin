@@ -1,9 +1,11 @@
 ﻿using Foundation;
 using System;
+using System.Linq;
 
 namespace Xamarin.Cognitive.Face.iOS
 {
 	#region Wrapper properties to get around annoying NSNull issue
+
 
 	public partial class MPOPersonGroup : NSObject
 	{
@@ -114,6 +116,26 @@ namespace Xamarin.Cognitive.Face.iOS
 
 
 	#endregion
+
+
+	public partial class MPOFaceServiceClient : NSObject
+	{
+		public NSUrlSessionDataTask DetectWithUrl(string url, bool returnFaceId, bool returnFaceLandmarks, MPOFaceAttributeType[] returnFaceAttributes, MPOFaceArrayCompletionBlock completion)
+		{
+			var attrs = returnFaceAttributes.Select(a => Foundation.NSNumber.FromInt32((int)a)).ToArray();
+
+			return DetectWithUrl(url, returnFaceId, returnFaceLandmarks, attrs, completion);
+		}
+
+
+		public NSUrlSessionDataTask DetectWithData(NSData data, bool returnFaceId, bool returnFaceLandmarks, MPOFaceAttributeType[] returnFaceAttributes, MPOFaceArrayCompletionBlock completion)
+		{
+			var attrs = returnFaceAttributes.Select(a => Foundation.NSNumber.FromInt32((int)a)).ToArray();
+
+			return DetectWithData(data, returnFaceId, returnFaceLandmarks, attrs, completion);
+		}
+	}
+
 
 	//public partial class MPOPerson : NSObject
 	//{

@@ -6,10 +6,20 @@ namespace Xamarin.Cognitive.Face.iOS
 	{
 		Age = 1,
 		Gender,
-		FacialHair,
 		Smile,
-		HeadPose
+		Glasses,
+		FacialHair,
+		HeadPose,
+		Emotion,
+		Hair,
+		Makeup,
+		Occlusion,
+		Accessories,
+		Blur,
+		Exposure,
+		Noise
 	}
+
 
 	public enum MPOSimilarFaceSearchingMode : uint
 	{
