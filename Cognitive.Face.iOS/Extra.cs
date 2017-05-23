@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Xamarin.Cognitive.Face.iOS
 {
@@ -9,17 +10,20 @@ namespace Xamarin.Cognitive.Face.iOS
 
 	public partial class MPOPersonGroup : NSObject
 	{
-		public string UserData {
-			get {
-				if (NSNull.Null.Equals(NSUserData))
+		public string UserData
+		{
+			get
+			{
+				if (NSNull.Null.Equals (NSUserData))
 				{
 					return null;
 				}
 
-				return NSUserData.ToString();
+				return NSUserData.ToString ();
 			}
-			set {
-				NSUserData = new NSString(value);
+			set
+			{
+				NSUserData = new NSString (value);
 			}
 		}
 	}
@@ -27,17 +31,20 @@ namespace Xamarin.Cognitive.Face.iOS
 
 	public partial class MPOPerson : NSObject
 	{
-		public string UserData {
-			get {
-				if (NSNull.Null.Equals(NSUserData))
+		public string UserData
+		{
+			get
+			{
+				if (NSNull.Null.Equals (NSUserData))
 				{
 					return null;
 				}
 
-				return NSUserData.ToString();
+				return NSUserData.ToString ();
 			}
-			set {
-				NSUserData = new NSString(value);
+			set
+			{
+				NSUserData = new NSString (value);
 			}
 		}
 	}
@@ -45,17 +52,20 @@ namespace Xamarin.Cognitive.Face.iOS
 
 	public partial class MPOPersonFace : NSObject
 	{
-		public string UserData {
-			get {
-				if (NSNull.Null.Equals(NSUserData))
+		public string UserData
+		{
+			get
+			{
+				if (NSNull.Null.Equals (NSUserData))
 				{
 					return null;
 				}
 
-				return NSUserData.ToString();
+				return NSUserData.ToString ();
 			}
-			set {
-				NSUserData = new NSString(value);
+			set
+			{
+				NSUserData = new NSString (value);
 			}
 		}
 	}
@@ -63,17 +73,20 @@ namespace Xamarin.Cognitive.Face.iOS
 
 	public partial class MPOFaceMetadata : NSObject
 	{
-		public string UserData {
-			get {
-				if (NSNull.Null.Equals(NSUserData))
+		public string UserData
+		{
+			get
+			{
+				if (NSNull.Null.Equals (NSUserData))
 				{
 					return null;
 				}
 
-				return NSUserData.ToString();
+				return NSUserData.ToString ();
 			}
-			set {
-				NSUserData = new NSString(value);
+			set
+			{
+				NSUserData = new NSString (value);
 			}
 		}
 	}
@@ -81,17 +94,20 @@ namespace Xamarin.Cognitive.Face.iOS
 
 	public partial class MPOFaceList : NSObject
 	{
-		public string UserData {
-			get {
-				if (NSNull.Null.Equals(NSUserData))
+		public string UserData
+		{
+			get
+			{
+				if (NSNull.Null.Equals (NSUserData))
 				{
 					return null;
 				}
 
-				return NSUserData.ToString();
+				return NSUserData.ToString ();
 			}
-			set {
-				NSUserData = new NSString(value);
+			set
+			{
+				NSUserData = new NSString (value);
 			}
 		}
 	}
@@ -99,17 +115,20 @@ namespace Xamarin.Cognitive.Face.iOS
 
 	public partial class MPOFaceListMetadata : NSObject
 	{
-		public string UserData {
-			get {
-				if (NSNull.Null.Equals(NSUserData))
+		public string UserData
+		{
+			get
+			{
+				if (NSNull.Null.Equals (NSUserData))
 				{
 					return null;
 				}
 
-				return NSUserData.ToString();
+				return NSUserData.ToString ();
 			}
-			set {
-				NSUserData = new NSString(value);
+			set
+			{
+				NSUserData = new NSString (value);
 			}
 		}
 	}
@@ -118,21 +137,33 @@ namespace Xamarin.Cognitive.Face.iOS
 	#endregion
 
 
+	public partial class MPOGroupResult
+	{
+		public List<string []> Groups
+		{
+			get
+			{
+				return new List<string []> (NSGroups.Select (g => NSArray.StringArrayFromHandle (g.Handle)));
+			}
+		}
+	}
+
+
 	public partial class MPOFaceServiceClient : NSObject
 	{
-		public NSUrlSessionDataTask DetectWithUrl(string url, bool returnFaceId, bool returnFaceLandmarks, MPOFaceAttributeType[] returnFaceAttributes, MPOFaceArrayCompletionBlock completion)
+		public NSUrlSessionDataTask DetectWithUrl (string url, bool returnFaceId, bool returnFaceLandmarks, MPOFaceAttributeType [] returnFaceAttributes, MPOFaceArrayCompletionBlock completion)
 		{
-			var attrs = returnFaceAttributes.Select(a => Foundation.NSNumber.FromInt32((int)a)).ToArray();
+			var attrs = returnFaceAttributes.Select (a => Foundation.NSNumber.FromInt32 ((int) a)).ToArray ();
 
-			return DetectWithUrl(url, returnFaceId, returnFaceLandmarks, attrs, completion);
+			return DetectWithUrl (url, returnFaceId, returnFaceLandmarks, attrs, completion);
 		}
 
 
-		public NSUrlSessionDataTask DetectWithData(NSData data, bool returnFaceId, bool returnFaceLandmarks, MPOFaceAttributeType[] returnFaceAttributes, MPOFaceArrayCompletionBlock completion)
+		public NSUrlSessionDataTask DetectWithData (NSData data, bool returnFaceId, bool returnFaceLandmarks, MPOFaceAttributeType [] returnFaceAttributes, MPOFaceArrayCompletionBlock completion)
 		{
-			var attrs = returnFaceAttributes.Select(a => Foundation.NSNumber.FromInt32((int)a)).ToArray();
+			var attrs = returnFaceAttributes.Select (a => Foundation.NSNumber.FromInt32 ((int) a)).ToArray ();
 
-			return DetectWithData(data, returnFaceId, returnFaceLandmarks, attrs, completion);
+			return DetectWithData (data, returnFaceId, returnFaceLandmarks, attrs, completion);
 		}
 	}
 
