@@ -195,46 +195,4 @@ namespace Xamarin.Cognitive.Face.iOS
 
 
 	//}
-
-	//public partial class MPOFaceServiceClient : NSObject
-	//{
-	//	const string NULL = "<null>";
-
-	//	public NSUrlSessionDataTask ListPersonsForGroup (string personGroupId, MPOPersonArrayCompletionBlock completion)
-	//	{
-	//		return StartTaskWithHttpMethod ("GET", $"persongroups/{personGroupId}/persons", null, null, null, (response, responseObject, error) =>
-	//		{
-	//			var array = new NSMutableArray ();
-
-	//			if (error == null)
-	//			{
-	//				var dictionaries = NSArray.FromArray<NSDictionary> ((NSArray)responseObject);
-
-	//				foreach (var dict in dictionaries)
-	//				{
-	//					var mpoPerson = new MPOPerson ();
-	//					mpoPerson.PersonId = dict [@"personId"].ToString ();
-	//					mpoPerson.Name = dict [@"name"].ToString ();
-
-	//					var userData = dict [@"userData"] as NSString;
-	//					var userDataString = userData?.ToString ();
-
-	//					if (userDataString != NULL)
-	//					{
-	//						mpoPerson.UserData = userDataString;
-	//					}
-
-	//					if (dict [@"persistedFaceIds"] is NSArray)
-	//					{
-	//						mpoPerson.FaceIds = NSArray.StringArrayFromHandle (dict [@"persistedFaceIds"].Handle);
-	//					}
-
-	//					array.Add (mpoPerson);
-	//				}
-	//			}
-
-	//			RunCompletionOnMainQueueWithBlock (completion, array, error);
-	//		});
-	//	}
-	//}
 }
