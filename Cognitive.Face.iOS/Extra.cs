@@ -134,6 +134,27 @@ namespace Xamarin.Cognitive.Face.iOS
 	}
 
 
+	public partial class MPOTrainingStatus : NSObject
+	{
+		public string Message
+		{
+			get
+			{
+				if (NSNull.Null.Equals (NSMessage))
+				{
+					return null;
+				}
+
+				return NSMessage.ToString ();
+			}
+			set
+			{
+				NSMessage = new NSString (value);
+			}
+		}
+	}
+
+
 	#endregion
 
 

@@ -683,21 +683,21 @@ namespace Xamarin.Cognitive.Face.iOS
 	[BaseType (typeof (NSObject))]
 	interface MPOTrainingStatus
 	{
-		// @property NSString * personGroupId;
-		[Export ("personGroupId")]
-		string PersonGroupId { get; set; }
-
 		// @property NSString * status;
 		[Export ("status")]
 		string Status { get; set; }
 
-		// @property NSString * startTime;
-		[Export ("startTime")]
-		string StartTime { get; set; }
+		// @property NSString * createdDateTime;
+		[Export ("createdDateTime")]
+		string CreatedDateTime { get; set; }
 
-		// @property NSString * endTime;
-		[Export ("endTime")]
-		string EndTime { get; set; }
+		// @property NSString * lastActionDateTime;
+		[Export ("lastActionDateTime")]
+		string LastActionDateTime { get; set; }
+
+		// @property NSString * message;
+		[Export ("message"), NullAllowed, Internal]
+		NSObject NSMessage { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
 		[Export ("initWithDictionary:")]
@@ -780,6 +780,10 @@ namespace Xamarin.Cognitive.Face.iOS
 		// -(id)initWithSubscriptionKey:(NSString *)key;
 		[Export ("initWithSubscriptionKey:")]
 		IntPtr Constructor (string key);
+
+		// -(id)initWithEndpointAndSubscriptionKey:(NSString *)endpoint key:(NSString *)key;
+		[Export ("initWithEndpointAndSubscriptionKey:key:")]
+		IntPtr Constructor (string endpoint, string key);
 
 		// -(NSURLSessionDataTask *)detectWithUrl:(NSString *)url returnFaceId:(BOOL)returnFaceId returnFaceLandmarks:(BOOL)returnFaceLandmarks returnFaceAttributes:(NSArray *)returnFaceAttributes completionBlock:(MPOFaceArrayCompletionBlock)completion;
 		[Export ("detectWithUrl:returnFaceId:returnFaceLandmarks:returnFaceAttributes:completionBlock:")]
