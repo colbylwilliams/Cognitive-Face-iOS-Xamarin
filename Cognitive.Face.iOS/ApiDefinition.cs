@@ -213,7 +213,7 @@ namespace Xamarin.Cognitive.Face.iOS
 
 		// @property NSNumber * hairColor;
 		[Export ("hairColor", ArgumentSemantic.Assign)]
-		NSArray HairColor { get; set; }
+		NSDictionary [] HairColor { get; set; }
 
 		// @property NSString * hair;
 		[Export ("hair")]
@@ -268,7 +268,7 @@ namespace Xamarin.Cognitive.Face.iOS
 	{
 		// @property NSArray * accessories;
 		[Export ("accessories", ArgumentSemantic.Assign)]
-		NSArray Accessories { get; set; }
+		NSDictionary [] Accessories { get; set; }
 
 		// @property NSMutableArray * accessoriesArray;
 		[Export ("accessoriesArray", ArgumentSemantic.Assign)]
