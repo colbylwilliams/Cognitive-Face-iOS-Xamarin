@@ -56,12 +56,10 @@ namespace Xamarin.Cognitive.Face.iOS
 	{
 		// @property NSNumber * x;
 		[Export ("x", ArgumentSemantic.Assign)]
-		[BindAs (typeof (int))]
 		NSNumber X { get; set; }
 
 		// @property NSNumber * y;
 		[Export ("y", ArgumentSemantic.Assign)]
-		[BindAs (typeof (int))]
 		NSNumber Y { get; set; }
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dict;
