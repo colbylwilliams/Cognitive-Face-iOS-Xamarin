@@ -115,6 +115,10 @@ namespace Xamarin.Cognitive.Face.iOS
 		[Export ("eyeLeftInner", ArgumentSemantic.Assign)]
 		MPOFaceFeatureCoordinate EyeLeftInner { get; set; }
 
+		// @property MPOFaceFeatureCoordinate * eyebrowRightOuter;
+		[Export ("eyebrowRightOuter", ArgumentSemantic.Assign)]
+		MPOFaceFeatureCoordinate EyebrowRightOuter { get; set; }
+
 		// @property MPOFaceFeatureCoordinate * eyebrowRightInner;
 		[Export ("eyebrowRightInner", ArgumentSemantic.Assign)]
 		MPOFaceFeatureCoordinate EyebrowRightInner { get; set; }
@@ -150,6 +154,10 @@ namespace Xamarin.Cognitive.Face.iOS
 		// @property MPOFaceFeatureCoordinate * noseLeftAlarOutTip;
 		[Export ("noseLeftAlarOutTip", ArgumentSemantic.Assign)]
 		MPOFaceFeatureCoordinate NoseLeftAlarOutTip { get; set; }
+
+		// @property MPOFaceFeatureCoordinate * noseRightAlarTop;
+		[Export ("noseRightAlarTop", ArgumentSemantic.Assign)]
+		MPOFaceFeatureCoordinate NoseRightAlarTop { get; set; }
 
 		// @property MPOFaceFeatureCoordinate * noseRightAlarOutTip;
 		[Export ("noseRightAlarOutTip", ArgumentSemantic.Assign)]
